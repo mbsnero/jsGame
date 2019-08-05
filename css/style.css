@@ -19,11 +19,13 @@ body {
 }
 
 .header {
-  width: 250px;
-  border: 1px solid transparent;
+  width: 295px;
+  float: right;
   margin: 30px auto;
+  padding-top: 5px;
   text-align: center;
   font-size: 30px;
+
 }
 
 .game {
@@ -41,7 +43,9 @@ body {
 
 .footer {
   width: 250px;
-  margin: 30px auto;
+  margin: 30px 0;
+  margin-right: 20px;
+  float: right;
 }
 
 #time-status {
@@ -53,7 +57,7 @@ body {
 
 .footer .footer-title {
   font-size: 30px;
-  padding: 0 0 30px;
+  padding: 0 0 15px;
 }
 
 button {
@@ -91,4 +95,80 @@ button::-moz-focus-inner {
 
 #header-result {
   display: none;
+}
+
+.mode-block {
+  margin: 30px 0;
+  width: 300px;
+  float: left;
+}
+
+.format {
+  display: inline-block;
+  font-size: 30px;
+  margin-left: 40px;
+  margin-bottom: 10px;
+}
+
+.box-change {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-color: blueviolet;
+  margin: 0 20px;
+  position: relative;
+  top: 5px;
+}
+
+.circle-change {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-color: blueviolet;
+  border-radius: 25px;
+  position: relative;
+  top: 5px;
+}
+
+.dificult {
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.format-block {
+  width: 295px;
+  float: left;
+  margin: 30px 0;
+}
+
+.mode {
+  display: inline-block;
+  background-color: blue;
+  margin-right: -4px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 14px;
+  color: white;
+}
+
+.mode-container {
+  margin: 0 auto;
+  width: 200px;
+}
+
+.light {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  background-color: blueviolet;
+}
+
+.normal {
+  background-color: darkblue;
+}
+
+.hard {
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background-color: blueviolet;
 }

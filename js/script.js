@@ -3,11 +3,53 @@ $(document).ready( function(){
   // --------------------   Переменные   --------------------
   
   let timerStatus = 5;
+  let isCircle = false;
   let count = 0;
+  let mode = 2;
   let isGameStarted = false;
-  let boxSize, boxColor, posX, posY;
+  let boxSize, boxColor, posX, posY, radius, n;
 
   // --------------------   События   --------------------
+
+  $('.box-change').on('click', () => {
+    if (!isGameStarted) {
+      isCircle = false;
+      $('.box-change').css('background-color', 'blueviolet');
+      $('.circle-change').css('background-color', 'lightblue');
+    }
+  });
+
+  $('.light').on('click', () => {
+    if (!isGameStarted) {
+      mode = 1;
+      $('.mode').css("background-color", "blueviolet");
+      $('.light').css("background-color", "darkblue");
+    }
+  })
+
+  $('.normal').on('click', () => {
+    if (!isGameStarted) {
+      mode = 2;
+      $('.mode').css("background-color", "blueviolet");
+      $('.normal').css("background-color", "darkblue");
+    }
+  })
+
+  $('.hard').on('click', () => {
+    if (!isGameStarted) {
+      mode = 3;
+      $('.mode').css("background-color", "blueviolet");
+      $('.hard').css("background-color", "darkblue");
+    }
+  })
+
+  $('.circle-change').on('click', () => {
+    if (!isGameStarted) {
+      isCircle = true;
+      $('.circle-change').css('background-color', 'blueviolet');
+      $('.box-change').css('background-color', 'lightblue');
+    }
+  });
 
   $('#btnMinus').on('click', () => {
     if (timerStatus > 5 && !isGameStarted) {
@@ -27,6 +69,8 @@ $(document).ready( function(){
       $('.timer').text(timerStatus);
     }
   });
+
+  
 
   $('.start-btn').on('click', () => {
     startGame();
@@ -72,10 +116,25 @@ $(document).ready( function(){
   }
 
   function renderBox() {
-    boxSize = random(20, 60);
+
+    switch (mode) {
+      case 1:
+        n = 2.5;
+        break;
+      
+      case 2:
+        n = 1.5;
+        break;
+
+      case 3:
+        n = 1;
+        break;
+    }
+    boxSize = random(20 * n, 40 * n);
     boxColor = randomColor();
     posX = random(0, 390 - boxSize);
     posY = random(0, 240 - boxSize);
+    radius = boxSize / 2;
 
     $('.game').prepend('<div class="box"></div>');
     $('.box').css({
@@ -85,6 +144,10 @@ $(document).ready( function(){
       "margin-top": posY,
       "background-color": boxColor,
     })
+
+    if (isCircle) {
+      $('.box').css("border-radius", radius);
+    }
   }
 
   function random(min, max) {
